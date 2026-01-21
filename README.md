@@ -1,4 +1,4 @@
-# 🛍️ Spring Boot & JPA 基盤 ECサイトプロジェクト
+# 🛍️ Spring & JPA 基盤 ECサイトプロジェクト
 
 ## 🔗 🛠 技術スタック (Tech Stack)
 
