@@ -29,20 +29,22 @@ public class MemberApiController {
     public Result memberV2(){
         List<Member> findMembers = memberService.findMembers();
 
-        findMembers.stream()
+        List<MemberDto> collect = findMembers.stream()
                 .map(m -> new MemberDto(m.getName()))
-                .collect(Collectors.toCollection());
+                .toList();
 
 
-
+        return new Result(collect);
     }
 
     @Data
     @AllArgsConstructor
     static class Result<T> {
         private T data;
+
     }
     @Data
+    @AllArgsConstructor
     static class MemberDto{
         private String name;
     }
