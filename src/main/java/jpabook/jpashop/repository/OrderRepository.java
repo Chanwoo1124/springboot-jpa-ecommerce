@@ -52,4 +52,22 @@ public class OrderRepository {
     }
 
 
+    public List<Order> findAllWithMemberDelivery() {
+        return em.createQuery(
+                "select o from Order o " +
+                        "join fetch o.member m " +
+                        "join fetch o.delivery d", Order.class
+        ).getResultList();
+
+    }
+
+    public List<OrderSimpleQueryDto> findOrderDtos(){
+        return  em.createQuery(
+                "select o from Order o " +
+                        "join o.member m " +
+                        "join o.delivery" , OrderSimpleQueryDto.class)
+                .getResultList();
+
+    }
+
 }
